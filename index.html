@@ -79,8 +79,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* ── TOPBAR ── */
 .topbar{height:68px;background:rgba(250,247,242,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:200;box-shadow:0 2px 24px rgba(100,60,20,.1)}
 .topbar-left{display:flex;align-items:center;gap:10px}
-.logo-img{width:54px;height:54px;background:transparent;display:flex;align-items:center;justify-content:center;overflow:visible;flex-shrink:0}
-.logo-img img{width:54px;height:54px;object-fit:contain;border-radius:8px;transition:transform .3s var(--spring)}
+.logo-img{width:60px;height:60px;background:transparent;display:flex;align-items:center;justify-content:center;overflow:visible;flex-shrink:0}
+.logo-img img{width:60px;height:60px;object-fit:contain;border-radius:8px;transition:transform .3s var(--spring)}
 .logo-img:hover img{transform:scale(1.08) rotate(-2deg)}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:700;color:var(--text);letter-spacing:0.03em;line-height:1}
 .logo-text span{color:var(--gold-light);font-style:italic}
@@ -200,7 +200,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* Job blocks */
 .job-block{position:absolute;border-radius:7px;padding:4px 7px;font-size:.7rem;cursor:pointer;overflow:hidden;z-index:5;border-left:3.5px solid;transition:all .2s var(--spring);box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.job-block:hover{filter:brightness(.92);transform:scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,.14);z-index:20}
+.job-block:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:20}
 .jb-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.75rem}
 .jb-type{font-size:.63rem;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;margin-top:1px}
 .jb-time{font-family:'JetBrains Mono',monospace;font-size:.55rem;opacity:.6;margin-top:2px}
@@ -249,7 +249,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .co-bar{width:4px;height:24px;border-radius:2px;flex-shrink:0}
 .co-hdr h3{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:700;flex:1}
 .co-count{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:3px 9px;border-radius:10px;font-weight:700}
-.emp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
+.emp-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .emp-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;align-items:center;gap:11px;transition:all .22s;position:relative;overflow:hidden;border-left:4px solid}
 .emp-card:hover{background:var(--surface2);box-shadow:var(--shadow);transform:translateY(-2px)}
 .emp-card-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:white;flex-shrink:0;transition:transform .22s var(--spring);overflow:hidden;background-size:cover;background-position:center}
@@ -2647,8 +2647,8 @@ function renderWeekView(){
         const names=(job.empIds||[]).map(id=>empById(id)?.name||'?').join(', ');
         const b=document.createElement('div');
         b.className='job-block';
-        b.style.cssText=`position:absolute;top:${top}px;left:${left}px;width:${width}px;height:${ht}px;background:${color}28;border-color:${color};color:${color}`;
-        b.innerHTML=`<div class="jb-name">${names}</div><div class="jb-type" style="color:var(--text2)">${job.jobType}</div><div class="jb-time">${fmtTime(job.startTime)}–${fmtTime(job.endTime)}</div>`;
+        b.style.cssText=`position:absolute;top:${top}px;left:${left}px;width:${width}px;height:${ht}px;background:${color}22;border-color:${color}`;
+b.innerHTML=`<div class="jb-name" style="color:${color};font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${names}</div><div class="jb-type" style="color:var(--text);font-size:.63rem;font-weight:600">${job.jobType}</div><div class="jb-time" style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.55rem">${fmtTime(job.startTime)}–${fmtTime(job.endTime)}</div>`;
         b.onclick=e=>{e.stopPropagation();openJobDetail(job.id)};
         ov.appendChild(b);
       });
