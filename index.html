@@ -2629,7 +2629,7 @@ function renderWeekView(){
   requestAnimationFrame(()=>{
     const g=document.getElementById('wgrid');if(!g)return;
     const ov=document.getElementById('wko');
-    const gw=72,aw=g.offsetWidth-gw,cw=aw/7,hh=76;
+    const gw=72,aw=g.offsetWidth-gw,cw=aw/7,hh=70;
     days.forEach((d,ci)=>{
       const d2=ds(d);
       const dj=filteredJobs().filter(j=>j.date===d2&&j.startTime&&j.endTime);
